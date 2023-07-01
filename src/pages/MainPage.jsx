@@ -1,9 +1,5 @@
-import {Profile} from "../components/Profile/Profile";
-import {Projects} from "../components/Projects/Projects";
-import {MoreProjects} from "../components/MiniProjects/MoreProjects";
-import {Carrousel} from "../components/Carrousel/Carrousel";
-import {Button} from "../components/Shared/Button";
 import {useEffect} from "react";
+import {ThreeDee} from "./../components/ThreeDee";
 
 export const MainPage = () => {
   useEffect(() => {
@@ -12,18 +8,8 @@ export const MainPage = () => {
 
   return (
     <main>
-      <Profile />
-      <Projects />
-      <Carrousel />
-      <MoreProjects />
-
-      <div className="button-container">
-        <Button
-          text="About me"
-          path="/about"
-          iconClass={"fa-solid fa-arrow-right"}
-        />
-      </div>
+      <p className="controls">WASD, SHIFT, SPACE</p>
+      <ThreeDee />
     </main>
   );
 };

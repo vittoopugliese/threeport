@@ -1,10 +1,9 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Header} from "./components/Header/Header";
 import {useEffect, useState} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {OnPageLoad} from "./components/Shared/OnPageLoad";
-import { ThreeDee } from "./components/Shared/ThreeDee";
+import {MainPage} from "./pages/MainPage";
+import {LoadingSpinner} from "./components/LoadingSpinner";
 
 function App() {
   const [pageLoading, setpageLoading] = useState(true);
@@ -14,19 +13,20 @@ function App() {
 
     setTimeout(() => {
       setpageLoading(false);
-    }, 1250);
+    }, 1254);
   }, []);
 
   return (
     <>
       {pageLoading ? (
-        <OnPageLoad />
+        <div className="appContainer" data-aos="fade-up">
+          <LoadingSpinner size={10} />
+        </div>
       ) : (
         <BrowserRouter>
           <div className="appContainer" data-aos="fade-up">
-            {/* <Header data-aos="fade-down" /> */}
             <Routes>
-              <Route path="/" element={<ThreeDee />} />
+              <Route path="/" element={<MainPage />} />
             </Routes>
           </div>
         </BrowserRouter>
